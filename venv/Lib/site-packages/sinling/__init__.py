@@ -1,0 +1,1 @@
+from sinling.sinhala import *

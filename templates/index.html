@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentence Noun Case Detector</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="background">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Sinhala Name Case Detector</h1>
+            <form method="POST" action="/predict">
+                <div class="form-group">
+                    <textarea name="sentence" placeholder="Enter Sinhala Unicode sentence">{{ sentence or "" }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+            {% if error %}
+            <div class="alert alert-danger mt-3" style="color: red; margin-top: 20px;">{{ error }}</div>
+            {% endif %}
+            {% if noun and case %}
+            <div class="result mt-3">
+                <h4>Results:</h4>
+                <p><strong>Input Sentence:</strong> {{ sentence }}</p>
+                <p><strong>Noun:</strong> {{ noun }}</p>
+                <p><strong>Case:</strong> {{ case }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+  </div>
+</body>
+</html>
